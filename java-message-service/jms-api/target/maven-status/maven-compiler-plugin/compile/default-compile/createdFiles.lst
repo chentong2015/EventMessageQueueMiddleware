@@ -1,0 +1,5 @@
+jndi\message\server\MyReceiver.class
+jndi\message\server\MyListener.class
+jms\api\MyJmsProducerConsumer.class
+jms\api\MyConnectionFactory.class
+jndi\message\server\MySender.class

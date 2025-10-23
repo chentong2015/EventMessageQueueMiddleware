@@ -1,0 +1,5 @@
+activemq\topic\MessageTopicProducer.class
+activemq\queue\MessageQueueConsumer.class
+activemq\ApacheActiveMq.class
+activemq\queue\MessageQueueProducer.class
+activemq\topic\MessageTopicConsumer.class
