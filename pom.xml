@@ -12,8 +12,8 @@
 
     <modules>
         <module>java-message-service</module>
-        <module>kafka</module>
-        <module>rabbitmq</module>
+        <module>message-queue-middlewares</module>
         <module>spring-jms-app</module>
+        <module>scheduled-event-task</module>
     </modules>
 </project>
