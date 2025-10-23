@@ -23,5 +23,12 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>3.5.6</version>
         </dependency>
+
+        <!-- 时间触发的任务调度器 -->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.3.2</version>
+        </dependency>
     </dependencies>
 </project>

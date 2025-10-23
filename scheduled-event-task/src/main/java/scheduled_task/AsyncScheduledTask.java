@@ -1,4 +1,4 @@
-package scheduled;
+package scheduled_task;
 
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;

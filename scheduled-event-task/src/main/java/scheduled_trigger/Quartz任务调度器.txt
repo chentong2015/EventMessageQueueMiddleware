@@ -1,0 +1,7 @@
+TODO. quartz Scheduler 任务调度器
+1. 定义要调度的Job任务是什么
+2. 定义Job什么时候被触发Trigger以及触发的次数周期
+3. 使用Scheduler按照Trigger来调度Job任务
+
+https://www.quartz-scheduler.org/documentation/quartz-2.0.2/examples/Example1.html
+https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/tutorial-lesson-05.html

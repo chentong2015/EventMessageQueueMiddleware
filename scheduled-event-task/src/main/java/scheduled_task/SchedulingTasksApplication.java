@@ -1,4 +1,4 @@
-package scheduled;
+package scheduled_task;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
