@@ -11,9 +11,9 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
+        <module>java-event-scheduled-task</module>
         <module>java-message-service</module>
-        <module>message-queue-middlewares</module>
-        <module>spring-jms-app</module>
-        <module>scheduled-event-task</module>
+        <module>message-queue-middleware</module>
+        <module>spring-events-app</module>
     </modules>
 </project>

@@ -10,7 +10,7 @@
     </parent>
     <packaging>pom</packaging>
 
-    <artifactId>message-queue-middlewares</artifactId>
+    <artifactId>message-queue-middleware</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

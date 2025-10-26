@@ -2,7 +2,7 @@ import java.util.concurrent.*;
 
 public class ScheduledThreadPoolTask {
 
-    // TODO. 使用ScheduledThreadPool来执行定时的任务，基于timestamps时间戳
+    // TODO. 使用ScheduledThreadPool来执行定时的任务
     public static void main(String[] args) {
         // 支持定时与周期性任务的线程池
         ExecutorService service = Executors.newScheduledThreadPool(10);
@@ -10,8 +10,9 @@ public class ScheduledThreadPoolTask {
             // service.execute(new MyTask());
         }
 
-        ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
         ScheduledExecutorService executorServiceWithFactory = Executors.newSingleThreadScheduledExecutor(new MyThreadFactory());
+
+        ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
         executorService.scheduleAtFixedRate(new MyTimedThread(), 0, 5, TimeUnit.SECONDS);
     }
 

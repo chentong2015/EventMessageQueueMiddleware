@@ -3,23 +3,24 @@
   <component name="Encoding">
     <file url="file://$APPLICATION_HOME_DIR$/bin/src/main/java" charset="UTF-8" />
     <file url="file://$APPLICATION_HOME_DIR$/bin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-event-scheduled-task/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-event-scheduled-task/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/java-message-service/jms-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-message-service/jms-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/java-message-service/jms-impl-activemq/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/java-message-service/jms-impl-activemq/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/java-message-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/java-message-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jms-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kafka-event-streaming/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/message-queue-middlewares/kafka/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/message-queue-middlewares/kafka/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/message-queue-middlewares/rabbitmq/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/message-queue-middlewares/rabbitmq/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/message-queue-middlewares/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/message-queue-middlewares/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/message-queue-middleware/kafka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/message-queue-middleware/kafka/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/message-queue-middleware/rabbitmq/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/message-queue-middleware/rabbitmq/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/message-queue-middleware/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/message-queue-middleware/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rabbitmq/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rabbitmq/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/scheduled-event-task/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/scheduled-event-task/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-jms-app/src/main/java" charset="UTF-8" />
   </component>
 </project>

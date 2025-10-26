@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/kafka-event-streaming/pom.xml" />
         <option value="$PROJECT_DIR$/spring-events-app/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-jms-app/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -1,6 +1,5 @@
-TODO. Event Driven Architect
+TODO. Event Driven Architecture: production and detection of events
 基于Event事件的生产和消费来启动系统的业务逻辑
-Software Architecture Pattern concerning the production and detection of events.
 
 An Event structure 事件的本质是某个时刻某一个状态发生了变化
 - header: event name, timestamp, type of event
@@ -11,7 +10,6 @@ An Event Driven System
 - Event consumers (or sinks) 消费者应该对事件的发生作出反应Reaction
 - Event channels (broker)    传输事件的管道
 
-TODO. 使用事件驱动的本质
-Transmit events among loosely coupled software components and services.
-Decouple: 能够实现异步解耦，方便扩展
+TODO. 事件驱动的本质: 异步解耦
+Decouple: Transmit events among loosely coupled software components and services.
 Invoke Async: 通过事件来触发(激活)不同层次的业务逻辑，避免流程式编程(直接显式方法调用)
