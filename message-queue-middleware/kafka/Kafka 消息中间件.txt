@@ -12,5 +12,14 @@ Kafka应用场景:
 - Commit Log
 - Metrics
 
+TODO. Kafka相关问题
+- Partition
+- Consumer Group
+- Rebalancing
+- Ordering
+- Retry
+- DLQ
+- Exactly Once vs At Least Once
+
 https://kafka.apache.org/documentation/
 https://kafka.apache.org/36/documentation/kafka_streams/

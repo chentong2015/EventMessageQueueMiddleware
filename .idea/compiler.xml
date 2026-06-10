@@ -8,19 +8,21 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring-events-app" />
         <module name="jms-api" />
-        <module name="jms-impl-activemq" />
-        <module name="kafka" />
         <module name="spring-jms-app" />
         <module name="rabbitmq" />
+        <module name="jms-impl-activemq" />
+        <module name="kafka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="java-event-scheduled-task" target="17" />
+      <module name="java-message-service-activemq" target="11" />
+      <module name="java-message-service-spring" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="spring-jms-app" options="-parameters" />
+      <module name="spring-jms-app" options="" />
     </option>
   </component>
 </project>
