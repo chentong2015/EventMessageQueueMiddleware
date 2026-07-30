@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/spring-jms-app/pom.xml" />
+        <option value="$PROJECT_DIR$/jms-message-service/jms-activemq/pom.xml" />
       </list>
     </option>
   </component>

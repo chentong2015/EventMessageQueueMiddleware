@@ -5,7 +5,7 @@ import jakarta.jms.ConnectionFactory;
 import jakarta.jms.JMSContext;
 import jakarta.jms.JMSException;
 
-// 自定义对JMS的实现和封装
+// 自定义实现ConnectionFactory接口: 没有具体实现则无法创建连接
 public class MyConnectionFactory implements ConnectionFactory {
 
     @Override

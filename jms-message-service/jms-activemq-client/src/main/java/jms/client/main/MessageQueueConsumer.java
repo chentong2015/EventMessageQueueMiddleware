@@ -1,4 +1,4 @@
-package jms_impl.queue;
+package jms.client.main;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 

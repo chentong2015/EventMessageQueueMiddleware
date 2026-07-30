@@ -1,10 +1,10 @@
-package jms_impl.topic;
+package jms.client.main;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import jakarta.jms.*;
 
-public class MessageTopicProducer {
+public class MessageTopicConsumer {
 
     private static final String URL = "http://127.0.0.1:61616";
     private static final String TOPIC_NAME = "topic name";
@@ -17,13 +17,16 @@ public class MessageTopicProducer {
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
         Destination destination = session.createTopic(TOPIC_NAME);
-        MessageProducer producer = session.createProducer(destination);
+        MessageConsumer consumer = session.createConsumer(destination);
 
-        for (int i = 0; i < 100; i++) {
-            TextMessage textMessage = session.createTextMessage("test queue message" + i);
-            producer.send(textMessage);
-            System.out.println("Send：" + textMessage.getText());
-        }
-        session.close();
+        consumer.setMessageListener(message -> {
+            TextMessage textMessage = (TextMessage) message;
+            try {
+                System.out.println("Received：" + textMessage.getText());
+            } catch (JMSException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }
+
