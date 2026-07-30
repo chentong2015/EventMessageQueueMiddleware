@@ -11,8 +11,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>java-message-service</module>
-        <module>message-queue-middleware</module>
+        <module>jms-message-service</module>
+        <module>message-queue</module>
         <module>event-driven-system</module>
     </modules>
 </project>
