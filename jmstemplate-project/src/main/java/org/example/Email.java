@@ -1,4 +1,4 @@
-package com.spring.jms;
+package org.example;
 
 public class Email {
 
