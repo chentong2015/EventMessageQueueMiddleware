@@ -13,6 +13,6 @@
     <modules>
         <module>java-message-service</module>
         <module>message-queue-middleware</module>
-        <module>spring-events-app</module>
+        <module>event-driven-system</module>
     </modules>
 </project>
