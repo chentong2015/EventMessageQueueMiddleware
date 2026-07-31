@@ -16,17 +16,15 @@ public class ActiveMqBroker {
         BrokerService broker = new BrokerService();
         broker.setBrokerName("my-broker");
         broker.addConnector(BIND_ADDRESS);
-        broker.start();
-
-        System.out.println("ActiveMQ Broker started...");
-        System.out.println("brokerURL=" + BIND_ADDRESS);
 
         // broker.setPersistent(false); 不持久化消息数据, 不产生文件信息
-
         Path path = FileSystems.getDefault().getPath("jms-message-service",  "storage");
-        File file = new File(path.toAbsolutePath().toString());
+        File file = path.toAbsolutePath().toFile();
         broker.setDataDirectoryFile(file);
-        broker.setTmpDataDirectory(file);
+
+        broker.start();
+        System.out.println("ActiveMQ Broker started...");
+        System.out.println("brokerURL=" + BIND_ADDRESS);
 
         broker.waitUntilStopped();
     }

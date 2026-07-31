@@ -12,9 +12,7 @@ public class ActiveMqTopicDemo {
     private static final String BIND_ADDRESS = "tcp://127.0.0.1:7777";
 
     public static void main(String[] args) throws JMSException, InterruptedException {
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
-        connectionFactory.setBrokerURL(BIND_ADDRESS);
-
+        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(BIND_ADDRESS);
         ActiveMQConnection connection = (ActiveMQConnection) connectionFactory.createConnection();
         connection.start();
 
