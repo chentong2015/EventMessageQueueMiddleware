@@ -11,6 +11,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/jms-message-service/jms/pom.xml" />
         <option value="$PROJECT_DIR$/spring-jms-app/pom.xml" />
       </set>
     </option>

@@ -6,7 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="jms" />
         <module name="jms-activemq-client" />
         <module name="kafka" />
         <module name="rabbitmq" />
@@ -16,6 +15,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="jms" target="17" />
       <module name="spring-jms-app" target="17" />
     </bytecodeTargetLevel>
   </component>

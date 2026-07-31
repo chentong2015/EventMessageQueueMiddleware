@@ -8,7 +8,8 @@ JMS: 异步可靠
 2. 消息的发布者并不需要消息的接收者存在时才发送信息，消息的接受者会自动fetch消息
 3. JMS保证消息只会被deliver一次
 
-JMS Impl:
-- Apache ActiveMQ: Client, Broker
-- Apache ActiveMQ: Artemis, Artemis-Server
-- Apache RocketMQ
+<dependency>
+    <groupId>jakarta.jms</groupId>
+    <artifactId>jakarta.jms-api</artifactId>
+    <version>3.1.0</version>
+</dependency>

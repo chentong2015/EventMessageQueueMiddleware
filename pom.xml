@@ -13,7 +13,7 @@
     <modules>
         <module>event-driven-system</module>
         <module>jms-message-service</module>
-        <module>message-queue</module>
         <module>jmstemplate-project</module>
+        <module>message-queue</module>
     </modules>
 </project>

@@ -1,0 +1,20 @@
+KahaDB用来保证消息持久化、事务一致性、崩溃恢复的内部文件
+
+name_broker/
+   └── kahadb/
+      ├── db.data    索引数据库, 保存消息位置(找log数据)和元数据
+      ├── db.redo    异常退出时恢复未完成事务
+      ├── db-1.log   发送的消息内容, 采用二进制Journal文件存储
+      └── lock       对多个Broker并发存储加锁, 避免使用同个目录
+
+db-1.log 存储消息内容: 通过索引找到
+--------------------------------
+MessageID:
+ID:localhost-xxx-1
+
+Body:
+Hello ActiveMQ
+
+Destination:
+queue://queue_name
+--------------------------------
