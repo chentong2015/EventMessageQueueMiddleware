@@ -29,9 +29,11 @@ public class ActiveMqQueueDemo {
         connection.close();
     }
 
+    // 创建基于特定Queue的消费者, 设置监听器
     private static void createQueueConsumer(Session session, Destination queue) throws JMSException {
         MessageConsumer consumer = session.createConsumer(queue);
         // TextMessage msg = (TextMessage) consumer.receive(5000);
+
         consumer.setMessageListener(message -> {
             TextMessage textMessage = (TextMessage) message;
             try {

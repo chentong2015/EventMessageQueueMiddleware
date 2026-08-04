@@ -37,7 +37,7 @@ public class ActiveMqTopicDemo {
         connection.close();
     }
 
-    // 创建基于某个Topic的消费者
+    // 创建基于某个Topic的消费者, 设置监听器
     private static void createTopicConsumer(Session session, Destination topic, int index) throws JMSException {
         MessageConsumer consumer = session.createConsumer(topic);
         // TextMessage messageReceived = (TextMessage) consumer.receive(5000);

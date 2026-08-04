@@ -1,0 +1,2 @@
+org.framework.notification.config.ActiveMqClientConfiguration
+org.framework.notification.config.JmsTemplateConfiguration

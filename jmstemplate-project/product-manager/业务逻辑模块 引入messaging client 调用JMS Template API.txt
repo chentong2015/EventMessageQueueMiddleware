@@ -1,5 +1,0 @@
-根据业务需求
-创建对应的JMS Message Producer
-   JmsTemplate.convertAndSend()
-创建对应的JMS Message Consumer !!
-   @JmsListener
