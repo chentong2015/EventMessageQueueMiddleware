@@ -42,17 +42,19 @@ public class ActiveMqBrokerConfiguration {
         broker.addConnector(url);
         broker.setDataDirectoryFile(new File(properties.getDbDirectory()));
         broker.setTmpDataDirectory(new File(properties.getTmpDirectory()));
+
         if (properties.isFlowControlEnabled()) {
             setBrokerWithFlowControl(broker, properties);
         }
         return broker;
     }
 
+    // Broker Service 服务端Flow Control控制
     private void setBrokerWithFlowControl(BrokerService broker, MessageQueueProperties properties) {
         // --- Per-destination flow control policy ---
         PolicyEntry policy = new PolicyEntry();
-        policy.setProducerFlowControl(true);          // activate flow control
-        policy.setMemoryLimit(properties.getMemoryLimit());      // 32 MB per destination
+        policy.setProducerFlowControl(true);
+        policy.setMemoryLimit(properties.getMemoryLimit());
 
         PolicyMap policyMap = new PolicyMap();
         policyMap.setDefaultEntry(policy);
@@ -62,15 +64,15 @@ public class ActiveMqBrokerConfiguration {
         SystemUsage systemUsage = new SystemUsage();
 
         MemoryUsage memoryUsage = new MemoryUsage();
-        memoryUsage.setLimit(properties.getMemoryUsageLimit());      // 256 MB total heap for messages
+        memoryUsage.setLimit(properties.getMemoryUsageLimit());
         systemUsage.setMemoryUsage(memoryUsage);
 
         StoreUsage storeUsage = new StoreUsage();
-        storeUsage.setLimit(properties.getStoreUsageLimit());      // 1 GB for persistent store
+        storeUsage.setLimit(properties.getStoreUsageLimit());
         systemUsage.setStoreUsage(storeUsage);
 
         TempUsage tempUsage = new TempUsage();
-        tempUsage.setLimit(properties.getTempUsageLimit());        // 100 MB for temp store
+        tempUsage.setLimit(properties.getTempUsageLimit());
         systemUsage.setTempUsage(tempUsage);
 
         broker.setSystemUsage(systemUsage);

@@ -17,6 +17,7 @@ import org.springframework.context.annotation.PropertySources;
 @EnableConfigurationProperties(MessageQueueProperties.class)
 public class ActiveMqClientConfiguration {
 
+    // 默认情况下在客户端设置到broker-address地址
     @Bean
     @ConditionalOnClass(ActiveMQConnectionFactory.class)
     @ConditionalOnMissingBean(ConnectionFactory.class)
@@ -25,12 +26,11 @@ public class ActiveMqClientConfiguration {
         if (properties.isFlowControlEnabled()) {
             return buildWithFlowControl(connectionFactory, properties);
         }
-
-        // 默认情况下在客户端设置到broker-address地址
         connectionFactory.setBrokerURL(properties.getBrokerAddress());
         return connectionFactory;
     }
 
+    // ActiveMQ Client 客户端的Flow Control
     private ConnectionFactory buildWithFlowControl(ActiveMQConnectionFactory connectionFactory, MessageQueueProperties properties) {
         String separator="?";
         if (properties.getBrokerAddress().contains("?")) {
