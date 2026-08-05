@@ -18,12 +18,13 @@ public class ActiveMqBroker {
 
     private static final String BIND_ADDRESS = "tcp://127.0.0.1:7777";
 
+    // broker.setPersistent(false); 不持久化消息数据, 不产生文件信息
     public static void main(String[] args) throws Exception {
         BrokerService broker = new BrokerService();
         broker.setBrokerName("my-broker");
         broker.addConnector(BIND_ADDRESS);
 
-        // broker.setPersistent(false); 不持久化消息数据, 不产生文件信息
+        // TODO. 消息持久化保证Consumer挂掉重启后能继续接收剩下的
         Path path = FileSystems.getDefault().getPath("jms-message-service",  "storage");
         File file = path.toAbsolutePath().toFile();
         broker.setDataDirectoryFile(file);

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class MessageQueueConsumer {
 
     // TODO. 最多支持创建三个MessageConsumer并发消费信息
-    // 多线程并发处理, 且保证每个消息ID只被消费一次, 挂掉恢复后继续剩余的
+    //  多线程并发处理, 且保证每个消息ID只被消费一次
     // org.springframework.jms.JmsListenerEndpointContainer#0-2 Queue Received <ItemAddress{id=2, name='address name'}>
     // org.springframework.jms.JmsListenerEndpointContainer#0-1 Queue Received <ItemAddress{id=0, name='address name'}>
     // org.springframework.jms.JmsListenerEndpointContainer#0-3 Queue Received <ItemAddress{id=5, name='address name'}>

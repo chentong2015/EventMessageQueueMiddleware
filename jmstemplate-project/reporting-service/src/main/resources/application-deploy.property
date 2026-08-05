@@ -1,0 +1,2 @@
+# 非同一台机器部署, 客户端指定到服务器的Broker Service地址
+mq.host=www.server.ds

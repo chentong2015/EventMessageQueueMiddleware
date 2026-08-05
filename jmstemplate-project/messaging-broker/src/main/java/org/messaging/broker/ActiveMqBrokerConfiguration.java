@@ -30,6 +30,7 @@ public class ActiveMqBrokerConfiguration {
         return connectionFactory;
     }
 
+    // TODO. BrokerService Bean注入后自动调用init方法启动
     @Bean(initMethod = "start", destroyMethod = "stop")
     public BrokerService brokerService(MessageQueueProperties properties) throws Exception {
         String url = properties.getBindAddress();
@@ -53,7 +54,6 @@ public class ActiveMqBrokerConfiguration {
         }
         return broker;
     }
-
 
     // 根据属性配置到特定目录文件中
     private void setBrokerDirectory(MessageQueueProperties properties) {

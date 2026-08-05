@@ -15,6 +15,7 @@
         <module>notification-framework</module>
         <module>messaging-broker</module>
         <module>resource-service</module>
+        <module>reporting-service</module>
     </modules>
 
     <properties>
