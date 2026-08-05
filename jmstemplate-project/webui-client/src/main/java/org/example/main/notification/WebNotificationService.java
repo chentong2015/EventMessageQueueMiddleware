@@ -22,7 +22,12 @@ public class WebNotificationService {
     // TODO. 将接收到的消息发送到WebSocket并将其显示在Web页面
     @JmsListener(destination = Destinations.REPORTING_TOPIC, containerFactory = "topicContainerFactory", concurrency = "1")
     public void receiveNotification(@Payload ReportResponse reportResponse) {
-        System.out.println("Web notification service received: " + reportResponse);
+        System.out.println("WebUI notification received: " + reportResponse);
         messagingTemplate.convertAndSend(NOTIFICATION_TOPIC, reportResponse);
+        try {
+            Thread.sleep(10000);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 }

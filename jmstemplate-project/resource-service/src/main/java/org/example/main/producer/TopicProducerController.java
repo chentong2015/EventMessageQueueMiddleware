@@ -19,7 +19,14 @@ public class TopicProducerController {
     @GetMapping("/jms/topic")
     public String testJmsProducer() {
         for (int index = 0; index < 100; index++) {
-            ReportResponse reportResponse = new ReportResponse(index, "report name", "response");
+            ReportResponse reportResponse;
+            if (index % 3 == 0) {
+                 reportResponse = new ReportResponse(index, "Export Excel", "FAILED");
+            } else if (index % 5 == 0) {
+                reportResponse = new ReportResponse(index, "Export PDF file", "RUNNING");
+            } else {
+                reportResponse = new ReportResponse(index, "Generate Report", "SUCCESS");
+            }
             jmsTemplate.convertAndSend(Destinations.getReportingTopic(), reportResponse);
         }
         return "Test JMS Topic OK";
