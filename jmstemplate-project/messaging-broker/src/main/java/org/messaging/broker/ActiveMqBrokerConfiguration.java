@@ -45,7 +45,7 @@ public class ActiveMqBrokerConfiguration {
         BrokerService broker = new BrokerService();
         broker.addConnector(url);
 
-        Path path = FileSystems.getDefault().getPath("jmstemplate-project",  "storage");
+        Path path = FileSystems.getDefault().getPath("jmstemplate-project",  "drive");
         File file = path.toAbsolutePath().toFile();
         broker.setDataDirectoryFile(file);
 

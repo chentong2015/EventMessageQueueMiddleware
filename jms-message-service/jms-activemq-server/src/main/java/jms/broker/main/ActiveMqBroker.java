@@ -25,7 +25,7 @@ public class ActiveMqBroker {
         broker.addConnector(BIND_ADDRESS);
 
         // TODO. 消息持久化保证Consumer挂掉重启后能继续接收剩下的
-        Path path = FileSystems.getDefault().getPath("jms-message-service",  "storage");
+        Path path = FileSystems.getDefault().getPath("jms-message-service",  "drive");
         File file = path.toAbsolutePath().toFile();
         broker.setDataDirectoryFile(file);
 
