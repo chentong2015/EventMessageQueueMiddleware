@@ -1,7 +1,7 @@
 package org.messaging.broker;
 
 import jakarta.jms.ConnectionFactory;
-import org.apache.activemq.ActiveMQSslConnectionFactory;
+import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.broker.BrokerService;
 import org.apache.activemq.broker.region.policy.PolicyEntry;
 import org.apache.activemq.broker.region.policy.PolicyMap;
@@ -14,15 +14,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.io.File;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 
 // 注入后端ActiveMQ Broker服务, 为MQ Client端提供连接
 @Configuration
 @ConditionalOnProperty(prefix = "spring.jms", name = {"enabled"}, havingValue = "true", matchIfMissing = true)
 public class ActiveMqBrokerConfiguration {
 
+    // TODO. Broker Server端使用VM Transport不走网络传输
     @Bean
     public ConnectionFactory activeMqConnectionFactory() {
-        ActiveMQSslConnectionFactory connectionFactory = new ActiveMQSslConnectionFactory();
+        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
         connectionFactory.setBrokerURL("vm://localhost");
         return connectionFactory;
     }
@@ -40,13 +43,22 @@ public class ActiveMqBrokerConfiguration {
 
         BrokerService broker = new BrokerService();
         broker.addConnector(url);
-        broker.setDataDirectoryFile(new File(properties.getDbDirectory()));
-        broker.setTmpDataDirectory(new File(properties.getTmpDirectory()));
+
+        Path path = FileSystems.getDefault().getPath("jmstemplate-project",  "storage");
+        File file = path.toAbsolutePath().toFile();
+        broker.setDataDirectoryFile(file);
 
         if (properties.isFlowControlEnabled()) {
             setBrokerWithFlowControl(broker, properties);
         }
         return broker;
+    }
+
+
+    // 根据属性配置到特定目录文件中
+    private void setBrokerDirectory(MessageQueueProperties properties) {
+        // broker.setDataDirectoryFile(new File(properties.getDbDirectory()));
+        // broker.setTmpDataDirectory(new File(properties.getTmpDirectory()));
     }
 
     // Broker Service 服务端Flow Control控制

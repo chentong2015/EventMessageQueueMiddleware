@@ -1,0 +1,11 @@
+ActiveMQ的BrokerURL并不只是IP地址，它表示Transport Connector:
+
+Broker URL
+tcp://localhost:61616	TCP连接Broker	走网络
+ssl://localhost:61617	SSL TCP连接	    走网络
+nio://localhost:61616	NIO TCP连接	    走网络
+vm://localhost	        JVM内嵌Broker	否
+failover:(tcp://...)	故障转移连接	    走网络
+
+vm:// 不是TCP网络地址，而是一种传输协议(VM Transport)，客户端和Broker在同一个JVM里面通信
+vm://localhost 这里的localhost是Broker Name(Broker名称)，不需端口号
