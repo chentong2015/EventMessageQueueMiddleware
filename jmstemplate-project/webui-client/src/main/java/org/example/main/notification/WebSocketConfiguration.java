@@ -14,7 +14,7 @@ public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer 
     @Value("${security.allowed-cors-origins}")
     private String[] allowedCorsOrigins;
 
-    // 设置所有topic/**都由Broker管理
+    // TODO. 设置所有topic/**都由Broker管理
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
         config.enableSimpleBroker("/topic");
