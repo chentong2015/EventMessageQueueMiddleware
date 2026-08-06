@@ -18,7 +18,7 @@
     </properties>
 
     <modules>
-        <module>jms-activemq-client</module>
-        <module>jms-activemq-server</module>
+        <module>jms-activemq</module>
+        <module>jms-activemq-broker</module>
     </modules>
 </project>

@@ -2,24 +2,33 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>jms-message-service</artifactId>
         <groupId>org.example</groupId>
+        <artifactId>jms-message-service</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-    <artifactId>jms-activemq-client</artifactId>
+
+    <artifactId>jms-activemq-broker</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
-        <!-- The ActiveMQ Client implementation -->
+        <!-- The ActiveMQ Message Broker implementation -->
         <dependency>
             <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-client</artifactId>
+            <artifactId>activemq-broker</artifactId>
+            <version>6.2.7</version>
+        </dependency>
+
+        <!-- The ActiveMQ KahaDB Store Implementation -->
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-kahadb-store</artifactId>
             <version>6.2.7</version>
         </dependency>
 

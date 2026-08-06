@@ -13,7 +13,7 @@ public class ActiveMqQueueDemo {
         connection.start();
 
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-        Queue queue = session.createQueue("queue_name");
+        Queue queue = session.createQueue("queue_name_new");
 
         createQueueConsumer(session, queue);
 

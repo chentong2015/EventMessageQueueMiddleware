@@ -13,7 +13,6 @@ public class ActiveMqBroker {
 
     private static final String BIND_ADDRESS = "tcp://127.0.0.1:7777";
 
-    // broker.setPersistent(false); 不持久化消息数据, 不产生文件信息
     public static void main(String[] args) throws Exception {
         BrokerService broker = new BrokerService();
         broker.setBrokerName("my-broker");
@@ -24,8 +23,6 @@ public class ActiveMqBroker {
         File file = path.toAbsolutePath().toFile();
         broker.setDataDirectoryFile(file);
 
-        ActiveMqBrokerFlowControl.customFlowControl(broker);
-
         broker.start();
         broker.waitUntilStopped();
         System.out.println("ActiveMQ Broker started...");
@@ -33,6 +30,7 @@ public class ActiveMqBroker {
     }
 
     // 加载KahaDB并持久化到本地目录
+    // broker.setPersistent(false); 不持久化消息数据, 不产生文件信息
     private static void addPersistentFolder(BrokerService broker) throws IOException {
         KahaDBPersistenceAdapter kaha = new KahaDBPersistenceAdapter();
         // kaha.setDirectory(file);

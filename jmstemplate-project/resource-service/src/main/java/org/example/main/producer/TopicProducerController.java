@@ -21,7 +21,7 @@ public class TopicProducerController {
         for (int index = 0; index < 100; index++) {
             ReportResponse reportResponse;
             if (index % 3 == 0) {
-                 reportResponse = new ReportResponse(index, "Export Excel", "FAILED");
+                reportResponse = new ReportResponse(index, "Export Excel", "FAILED");
             } else if (index % 5 == 0) {
                 reportResponse = new ReportResponse(index, "Export PDF file", "RUNNING");
             } else {

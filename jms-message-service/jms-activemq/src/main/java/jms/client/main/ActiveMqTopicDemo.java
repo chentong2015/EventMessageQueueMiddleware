@@ -20,24 +20,16 @@ public class ActiveMqTopicDemo {
         Destination topic = new ActiveMQTopic("topic_name_new");
 
         // 创建同一个Topic的多个消费者
-        for (int index = 0; index < 30; index++) {
-            createTopicConsumer(session, topic, index);
-        }
+        createTopicConsumer(session, topic, 1);
+        createTopicConsumer(session, topic, 2);
+        createTopicConsumer(session, topic, 3);
 
         MessageProducer producer = session.createProducer(topic);
         TextMessage textMessage = new ActiveMQTextMessage();
         textMessage.setText("Topic message: first text message !");
-        producer.send(textMessage);
 
-        while (true) {
-            textMessage = session.createTextMessage("Topic message: " +
-                    "text message text message text message text message text message " +
-                    "text message text message text message text message text message " +
-                    "text message text message text message text message text message " +
-                    "text message text message text message text message text message");
-            producer.send(textMessage);
-        }
-        // session.close();
+        producer.send(textMessage);
+        producer.send(session.createTextMessage("Topic message: test"));
         // connection.close();
     }
 
@@ -47,12 +39,6 @@ public class ActiveMqTopicDemo {
         // TextMessage messageReceived = (TextMessage) consumer.receive(5000);
 
         consumer.setMessageListener(message -> {
-            try {
-                Thread.sleep(2000000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-
             TextMessage text = (TextMessage) message;
             try {
                 System.out.println("Consumer " + index + " + Received: " + text.getText());
