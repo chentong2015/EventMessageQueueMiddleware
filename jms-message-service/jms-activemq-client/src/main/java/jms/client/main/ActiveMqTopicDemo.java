@@ -11,30 +11,34 @@ public class ActiveMqTopicDemo {
 
     private static final String BIND_ADDRESS = "tcp://127.0.0.1:7777";
 
-    public static void main(String[] args) throws JMSException, InterruptedException {
+    public static void main(String[] args) throws JMSException {
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(BIND_ADDRESS);
         ActiveMQConnection connection = (ActiveMQConnection) connectionFactory.createConnection();
         connection.start();
 
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-        Destination topic = new ActiveMQTopic("topic_name");
+        Destination topic = new ActiveMQTopic("topic_name_new");
 
-        createTopicConsumer(session, topic, 1);
-        createTopicConsumer(session, topic, 2);
-        createTopicConsumer(session, topic, 3);
+        // 创建同一个Topic的多个消费者
+        for (int index = 0; index < 30; index++) {
+            createTopicConsumer(session, topic, index);
+        }
 
         MessageProducer producer = session.createProducer(topic);
         TextMessage textMessage = new ActiveMQTextMessage();
         textMessage.setText("Topic message: first text message !");
         producer.send(textMessage);
-        for (int i = 0; i < 1000; i++) {
-            Thread.sleep(1000);
-            textMessage = session.createTextMessage("Topic message: " + i);
+
+        while (true) {
+            textMessage = session.createTextMessage("Topic message: " +
+                    "text message text message text message text message text message " +
+                    "text message text message text message text message text message " +
+                    "text message text message text message text message text message " +
+                    "text message text message text message text message text message");
             producer.send(textMessage);
         }
-
-        session.close();
-        connection.close();
+        // session.close();
+        // connection.close();
     }
 
     // 创建基于某个Topic的消费者, 设置监听器
@@ -43,6 +47,12 @@ public class ActiveMqTopicDemo {
         // TextMessage messageReceived = (TextMessage) consumer.receive(5000);
 
         consumer.setMessageListener(message -> {
+            try {
+                Thread.sleep(2000000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
             TextMessage text = (TextMessage) message;
             try {
                 System.out.println("Consumer " + index + " + Received: " + text.getText());

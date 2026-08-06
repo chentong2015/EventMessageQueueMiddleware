@@ -12,7 +12,7 @@ public class ActiveMqBrokerFlowControl {
 
     // TODO. BrokerService能够管理的消息大小有限制
     // 激活Producer Flow Control: 自定义设置Broker存储内存大小
-    private static void customFlowControl(BrokerService broker) {
+    public static void customFlowControl(BrokerService broker) {
         FlowControlProperties flowControlProperties = new FlowControlProperties();
         // --- Per-destination flow control policy ---
         PolicyEntry policy = new PolicyEntry();

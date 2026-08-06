@@ -1,5 +1,6 @@
 package jms.broker.main;
 
+import jms.broker.main.flow_control.ActiveMqBrokerFlowControl;
 import org.apache.activemq.broker.BrokerService;
 import org.apache.activemq.store.kahadb.KahaDBPersistenceAdapter;
 
@@ -22,6 +23,8 @@ public class ActiveMqBroker {
         Path path = FileSystems.getDefault().getPath("jms-message-service",  "drive");
         File file = path.toAbsolutePath().toFile();
         broker.setDataDirectoryFile(file);
+
+        ActiveMqBrokerFlowControl.customFlowControl(broker);
 
         broker.start();
         broker.waitUntilStopped();

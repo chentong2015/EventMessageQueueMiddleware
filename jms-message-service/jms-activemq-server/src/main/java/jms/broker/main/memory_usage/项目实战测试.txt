@@ -1,0 +1,10 @@
+使用默认MemoryUsage大小，随着消息的增加导致阻塞
+每隔一秒持续循环显示WARN信息，当消息被逐渐消费后自动释放
+
+使用自定义MemoryUsage大小，随着消息的增加提示占用百分比
+2026-07-22T15:22:59.461+02:00  WARN [messaging-.0-SNAPSHOT,,,] 25120 --- [messaging] [alhost] Task-45]
+o.apache.activemq.broker.region.Queue: queue://New.Target.Record,
+subscriptions=12, memory=77%, size=72, pending=0 cursor blocked, no space available to page in messages;
+usage: Usage(default:memory:queue://New.Target.Record:memory)
+       percentUsage=77%, usage=261336663, limit=335544320, percentUsageMinDelta=1%;
+       Parent:Usage(default:memory) percentUsage=16%, usage=432342709, limit=2684354560, percentUsageMinDelta=1%
