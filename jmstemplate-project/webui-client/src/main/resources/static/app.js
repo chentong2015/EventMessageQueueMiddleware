@@ -4,19 +4,18 @@ let stompClient = null;
 function connect() {
     const socket = new SockJS("/notification");
     stompClient = Stomp.over(socket);
+
     // 不打印心跳日志
-    stompClient.debug = null;
+    // stompClient.debug = null;
+
     stompClient.connect({}, function(frame) {
         console.log(frame);
         document.getElementById("status").innerHTML = "Connected";
         document.getElementById("status").className = "connected";
-
-        stompClient.subscribe(
-            "/topic/notification_workflow",
-            function(message) {
-                const report = JSON.parse(message.body);
-                addRow(report);
-            });
+        stompClient.subscribe("/topic/notification_workflow", function(message) {
+            const report = JSON.parse(message.body);
+            addRow(report);
+        });
     });
 }
 
@@ -29,18 +28,16 @@ function addRow(report) {
 
     const responseCell = row.insertCell(3);
     responseCell.innerHTML = report.response;
+    responseCell.style.fontWeight = "bold";
     switch (report.response.toUpperCase()) {
         case "SUCCESS":
             responseCell.style.color = "green";
-            responseCell.style.fontWeight = "bold";
             break;
         case "FAILED":
             responseCell.style.color = "red";
-            responseCell.style.fontWeight = "bold";
             break;
         case "RUNNING":
             responseCell.style.color = "orange";
-            responseCell.style.fontWeight = "bold";
             break;
         default:
             responseCell.style.color = "#333";
