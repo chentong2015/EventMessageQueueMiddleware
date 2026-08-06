@@ -1,4 +1,0 @@
-# 当Broker和Client处于不同机器部署时, 客户端指定到服务器的Broker Service地址
-# 基于TCP协议, 通过网络传输数据
-
-mq.host=www.server.ds

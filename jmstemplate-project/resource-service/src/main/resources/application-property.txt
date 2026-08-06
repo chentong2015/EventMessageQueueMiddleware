@@ -1,0 +1,3 @@
+# 当Broker和Client处于不同机器部署时
+# 客户端指定到服务器的Broker Service地址
+mq.host=www.server.ds

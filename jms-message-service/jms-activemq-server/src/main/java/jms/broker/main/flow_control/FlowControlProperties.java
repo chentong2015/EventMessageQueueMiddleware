@@ -1,4 +1,4 @@
-package jms.broker.main;
+package jms.broker.main.flow_control;
 
 public class FlowControlProperties {
 
