@@ -24,6 +24,7 @@
             <version>4.1.0</version>
         </dependency>
 
+        <!-- JMS support package, including helper class to send/receive JMS messages -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-jms</artifactId>
@@ -31,6 +32,7 @@
             <scope>compile</scope>
         </dependency>
 
+        <!-- JMS Impl Client -->
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-client</artifactId>
