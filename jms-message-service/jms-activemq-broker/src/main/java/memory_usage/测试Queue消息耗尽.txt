@@ -14,12 +14,9 @@ Producer 不断发送消息，让信息不断积压
   memUsage:750465061,               目前占用内存715MB
   maxPageSize:200    最大分页数量(400*200=8000 > 7710)
 
-默认缓存消息很难到100%:
+TODO. 默认缓存消息很难到100%
 当内存中消息达到比例后(Page分页数量), ActiveMQ会把消息存储到持久化空间(store limit默认100G)
 当订阅中的消息越来越多时，它可以把消息从JVM memory中page out
-
-对于non-persistent消息:
-ActiveMQ会使用temporary file store来降低内存占用，因此queue的memoryLimit可能永远达不到
 
 TODO. 自定义Flow Control大小模拟占满效果
 12:05:18.586 [ActiveMQ Transport: tcp:///127.0.0.1:58725@7777] WARN org.apache.activemq.broker.region.Queue
