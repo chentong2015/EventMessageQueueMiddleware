@@ -1,4 +1,4 @@
-package jms.broker.main.flow_control;
+package jms.broker.main;
 
 import org.apache.activemq.broker.BrokerService;
 import org.apache.activemq.broker.region.policy.PolicyEntry;
@@ -8,6 +8,7 @@ import org.apache.activemq.usage.StoreUsage;
 import org.apache.activemq.usage.SystemUsage;
 import org.apache.activemq.usage.TempUsage;
 
+// http://activemq.apache.org/producer-flow-control.html
 public class ActiveMqBrokerFlowControl {
 
     // TODO. BrokerService能够管理的消息大小有限制

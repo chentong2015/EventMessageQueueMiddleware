@@ -12,6 +12,7 @@ public class ActiveMqTopicMemoryTest {
     public static void main(String[] args) throws JMSException {
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(BIND_ADDRESS);
         ActiveMQConnection connection = (ActiveMQConnection) connectionFactory.createConnection();
+        connection.setClientID("client-1");
         connection.start();
 
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
@@ -20,6 +21,13 @@ public class ActiveMqTopicMemoryTest {
         MessageConsumer consumer = session.createDurableSubscriber(topic, "sub1");
         consumer.close();
 
-        // Producer 不停发消息 -> Broker 会缓存所有消 -> memoryUsage会上涨
+        MessageProducer producer = session.createProducer(topic);
+        producer.setDeliveryMode(DeliveryMode.PERSISTENT);
+        while (true) {
+            byte[] body = new byte[1024 * 1024]; // 1MB
+            BytesMessage msg = session.createBytesMessage();
+            msg.writeBytes(body);
+            producer.send(msg);
+        }
     }
 }

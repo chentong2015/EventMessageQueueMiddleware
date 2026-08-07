@@ -1,0 +1,13 @@
+TODO. Topic + Durable Subscriber
+默认没有任何消费者订阅这个Topic，消息会被直接丢弃，不会挤压
+
+采用可持续的订阅者需要创建clientID标识: connection.setClientID("client-1");
+Connection
+    └── clientID = "client-1"
+             └── Durable Subscription
+                    └── subscriptionName = "sub1"
+
+TODO. 自定义Flow Control大小模拟占满效果
+12:21:43.317 [ActiveMQ Transport: tcp:///127.0.0.1:54497@7777] WARN org.apache.activemq.broker.region.Topic
+-- topic://topic_name_new, Usage Manager memory limit reached 33554432.
+Producers will be throttled to the rate at which messages are removed from this destination to prevent flooding it.

@@ -16,8 +16,6 @@ public class ActiveMqQueueMemoryTest {
         Queue queue = session.createQueue("queue_name_test");
 
         MessageProducer producer = session.createProducer(queue);
-        producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT); // 非持久化消息
-
         while (true) {
             byte[] body = new byte[1024 * 1024]; // 1MB
             BytesMessage msg = session.createBytesMessage();

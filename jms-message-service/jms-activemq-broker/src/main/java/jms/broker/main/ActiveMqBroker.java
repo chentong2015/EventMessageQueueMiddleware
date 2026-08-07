@@ -1,11 +1,8 @@
 package jms.broker.main;
 
-import jms.broker.main.flow_control.ActiveMqBrokerFlowControl;
 import org.apache.activemq.broker.BrokerService;
-import org.apache.activemq.store.kahadb.KahaDBPersistenceAdapter;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
@@ -23,17 +20,11 @@ public class ActiveMqBroker {
         File file = path.toAbsolutePath().toFile();
         broker.setDataDirectoryFile(file);
 
+        // ActiveMqBrokerFlowControl.customFlowControl(broker);
+
         broker.start();
         broker.waitUntilStopped();
         System.out.println("ActiveMQ Broker started...");
         System.out.println("brokerURL=" + BIND_ADDRESS);
-    }
-
-    // 加载KahaDB并持久化到本地目录
-    // broker.setPersistent(false); 不持久化消息数据, 不产生文件信息
-    private static void addPersistentFolder(BrokerService broker) throws IOException {
-        KahaDBPersistenceAdapter kaha = new KahaDBPersistenceAdapter();
-        // kaha.setDirectory(file);
-        broker.setPersistenceAdapter(kaha);
     }
 }

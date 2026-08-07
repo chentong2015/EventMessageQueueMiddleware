@@ -5,10 +5,13 @@ name_broker/
    └── kahadb/
       ├── db.data    索引数据库, 保存消息位置(找log数据)和元数据
       ├── db.redo    异常退出时恢复未完成事务
-      ├── db-1.log   发送的消息内容, 采用二进制Journal文件存储
+      ├── db-1.log   存储消息内容, 采用二进制Journal文件存储
       └── lock       对多个Broker并发存储加锁, 避免使用同个目录
+   └── tmp_storage/
+      db-1.log       存储临时的NON_PERSISTENT非持久化消息
+      db-2.log
 
-db-1.log 存储消息内容: 通过索引找到
+通过索引从消息文件db-1.log中找数据
 --------------------------------
 MessageID:
 ID:localhost-xxx-1

@@ -1,0 +1,5 @@
+# 本机部署默认Bind-Address设置到localhost地址
+# 服务器部署Bind-Address自定义到服务器地址
+
+mq.listen.host=www.server.ds
+mq.listen.port=7778

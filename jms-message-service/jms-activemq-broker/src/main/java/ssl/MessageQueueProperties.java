@@ -1,4 +1,4 @@
-package jms.broker.main.ssl;
+package ssl;
 
 public class MessageQueueProperties {
 

@@ -1,4 +1,4 @@
-package jms.broker.main.ssl;
+package ssl;
 
 import jakarta.jms.ConnectionFactory;
 import org.apache.activemq.ActiveMQSslConnectionFactory;
